@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace loginpage.Controllers
-{
+{ 
     public class AccountController : Controller
     {
         private readonly SignInManager<Users> _signInManager;
