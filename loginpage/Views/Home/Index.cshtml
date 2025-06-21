@@ -16,25 +16,11 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
-@* <section class="text-center container">  *@
-@*     <div class="row py-lg-5"> *@
-@*         <div class="col-lg-6 col-md-8 mx-auto"> *@
-@*             <h1 class="fw-bold" style="font-family: 'Poppins', sans-serif; color: #0F457A;"> *@
-@*                 Welcome *@
-@*             </h1> *@
-@*             <p class="lead text-body-secondary">Current stock of medicines available in BlueWhite Genereics Pharmacy</p>  *@
-@*         </div> *@
-@*     </div>  *@
-@* </section> *@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
     <meta charset="UTF-8">
     <title>Pharmacy Landing Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CDN -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -78,51 +64,48 @@
             color: #555;
         }
     </style>
-</head>
-<body>
-
-    <!-- HERO SECTION -->
-    <div class="container my-5">
-        <div class="row align-items-center">
-            <div class="col-md-6 mb-4 mb-md-0">
-                <h1 class="hero-title">PHARMACY<br><span">INVENTORY</span></h1>
-                <p class="hero-description">Easily manage your medicine stocks, monitor expiration dates, and track inventory levels in with our Pharmacy Inventory System.</p>
-            </div>
-            <div class="col-md-6 text-center">
-                <img src="https://media.licdn.com/dms/image/D5610AQHVA3etk-Fx9g/image-shrink_800/0/1705003129758?e=2147483647&v=beta&t=1rHwRRZqXuZjM45WUPpT4RE8LICDmxgMRnX1dnwa5lY" alt="Pharmacy Illustration" class="hero-img img-fluid">
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
 
 
-
-
-<div class="album py-2 bg-body-tertiary">
-    <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            @foreach (var product in Model)
-            {
-                <div class="col">
-                    <div class="card shadow-lg">
-                        <img src="@Url.Content("~/products/" + product.ImgFileName)" class="card-img-top" alt="@product.Medicine_name" style="height: 190px; object-fit:scale-down" />
-                            <rect width="100%" height="100%" fill="#55595c"></rect>
-                        <div class="card-body" style="background: linear-gradient(44deg,rgba(98, 179, 224, 1) 0%, rgba(19, 95, 161, 1) 100%);">
-                            <h5 class="card-title" style=" color:white">@product.Medicine_name</h5>
-                            <p class="card-text" style="color: white">@product.Description</p>
-                            <p class="card-text" style="color:white"><b>Price: ₱ @product.Price</b></p>
-                            <span class="badge" style="background-color: #6c757d;">@product.Category</span>
-                            <span class="badge" style="background-color: #ffc107; color: black;">@product.DosageForm</span>
-                        </div>
-                    </div>
+<div class="container">
+        <section class="py-1 text-center container"> 
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <h1 class="hero-title">PHARMACY<br><span">INVENTORY</span></h1>
+                    <p class="hero-description">Easily manage your medicine stocks, monitor expiration dates, and track inventory levels in with our Pharmacy Inventory System.</p>
                 </div>
-            }
+                <div class="col-md-6 text-center">
+                    <img src="https://media.licdn.com/dms/image/D5610AQHVA3etk-Fx9g/image-shrink_800/0/1705003129758?e=2147483647&v=beta&t=1rHwRRZqXuZjM45WUPpT4RE8LICDmxgMRnX1dnwa5lY" alt="Pharmacy Illustration" class="hero-img img-fluid">
+                </div>
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        </section>
+    <div class="row mb-4" style="padding: 50px">
+        <div class="album py-2 bg-body-tertiary">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    @foreach (var product in Model)
+                    {
+                        <div class="col">
+                            <div class="card shadow-lg">
+                                <img src="@Url.Content("~/products/" + product.ImgFileName)" class="card-img-top" alt="@product.Medicine_name" style="height: 190px; object-fit:scale-down" />
+                                    <rect width="100%" height="100%" fill="#55595c"></rect>
+                                <div class="card-body" style="background: linear-gradient(44deg,rgba(98, 179, 224, 1) 0%, rgba(19, 95, 161, 1) 100%);">
+                                    <h5 class="card-title" style=" color:white">@product.Medicine_name</h5>
+                                    <p class="card-text" style="color: white">@product.Description</p>
+                                    <p class="card-text" style="color:white"><b>Price: ₱ @product.Price</b></p>
+                                    <span class="badge" style="background-color: #6c757d;">@product.Category</span>
+                                    <span class="badge" style="background-color: #ffc107; color: black;">@product.DosageForm</span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 
 
 
