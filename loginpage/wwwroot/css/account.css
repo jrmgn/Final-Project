@@ -1,5 +1,5 @@
-﻿.﻿account-container {
-    background-image: url('../images/account-bg.jpg');
+﻿.account-container {
+    background-image: url('/images/account-bg.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: repeat-y;
