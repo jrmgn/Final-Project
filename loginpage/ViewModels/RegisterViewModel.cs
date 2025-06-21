@@ -2,6 +2,8 @@
 
 namespace loginpage.ViewModels
 {
+    //attribute declaration for registrations (acts as viewmodel)
+    //conditions for error handling included
     public class RegisterViewModel
     {
         [Required(ErrorMessage = "Name is required.")]

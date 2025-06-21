@@ -8,6 +8,7 @@ namespace loginpage.Controllers
 {
     public class HomeController : Controller
     {
+        // Injects the database context and web host environment
         private readonly ApplicationDbContext context;
         private readonly IWebHostEnvironment environment;
 
@@ -17,6 +18,8 @@ namespace loginpage.Controllers
             this.environment = environment;
         }
 
+        // retrieves products from the database then display on Index view (homepage)
+        //crud view
         public IActionResult Index()
         {
             var products = context.Products.OrderByDescending(p => p.Id).ToList();

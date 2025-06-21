@@ -2,6 +2,7 @@
 
 namespace loginpage.Models
 {
+    //attributes declared for database
     public class Product
     {
         public int Id { get; set; }

@@ -2,6 +2,7 @@
 
 namespace loginpage.Models
 {
+    //attributes declared for add feature (acts as viewmodel)
     public class ProductAdd
     { 
         public string Medicine_name { get; set; } = string.Empty;

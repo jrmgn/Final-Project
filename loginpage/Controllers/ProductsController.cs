@@ -17,14 +17,15 @@ namespace loginpage.Controllers
             this.environment = environment;
         }
 
-        //view
+        //view show products list table
         public IActionResult ProductsList()
         {
             var products = context.Products.OrderByDescending(p => p.Id).ToList();
             return View(products);
         }
 
-        //add
+
+        //add feature
         //[HttpGet]
         public IActionResult Create()
         {
@@ -61,6 +62,7 @@ namespace loginpage.Controllers
                 productadd.ImgFile.CopyTo(stream);
             }
 
+            //from user input saved to database based on product attributes
             Product product = new Product()
             {
                 Medicine_name = productadd.Medicine_name,
@@ -108,6 +110,7 @@ namespace loginpage.Controllers
             return View(productadd);
         }
 
+        //code for edit medicines data (update feature)
         [HttpPost]
         public IActionResult Edit(int id, ProductAdd productadd)
         {
@@ -162,7 +165,7 @@ namespace loginpage.Controllers
 
         }
 
-
+        //code for deleting medicine data (delete feature)
         public IActionResult Delete(int id)
         {
             var product = context.Products.Find(id);
