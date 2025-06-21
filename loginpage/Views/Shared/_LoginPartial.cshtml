@@ -5,7 +5,7 @@
     @if (signInManager.IsSignedIn(User))
     {
         <li class="nav-item">
-            <a class="nav-link text-light" asp-area="" asp-controller="Products" asp-action="ProductsList"><b>PRODUCTS</b></a>
+            <a class="nav-link" asp-area="" asp-controller="Products" asp-action="ProductsList"><b>PRODUCTS</b></a>
         </li>
 
     }
@@ -14,16 +14,16 @@
     @if (signInManager.IsSignedIn(User)){
 
         <li class="nav-item">
-            <a class="nav-link text-light" asp-controller="Account" asp-action="Logout"><b>LOGOUT</b></a>
+            <a class="nav-link" asp-controller="Account" asp-action="Logout"><b>LOGOUT</b></a>
         </li>
     }
     else
     {
         <li class="nav-item">
-            <a class="nav-link text-light" asp-controller="Account" asp-action="Login"><b>LOGIN</b></a>
+            <a class="nav-link" asp-controller="Account" asp-action="Login"><b>LOGIN</b></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-light" asp-controller="Account" asp-action="Register"><b>REGISTER</b></a>
+            <a class="nav-link" asp-controller="Account" asp-action="Register"><b>REGISTER</b></a>
         </li>
     }
 
