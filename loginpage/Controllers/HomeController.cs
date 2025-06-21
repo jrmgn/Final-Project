@@ -23,6 +23,11 @@ namespace loginpage.Controllers
             return View(products);
         }
 
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
 
         [Authorize]
 

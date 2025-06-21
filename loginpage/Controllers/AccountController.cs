@@ -37,7 +37,7 @@ namespace loginpage.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Inventory", "Home");
+                    return RedirectToAction("Index", "Home");
                 }
 
                 ModelState.AddModelError("", "Email or password is incorrect.");
