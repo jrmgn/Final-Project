@@ -1,0 +1,75 @@
+@model List<Product>
+
+@* products list table view *@
+<div style="margin: 0px 50px 0px 50px">
+    <h1 class="text-center my-5 fw-bold">List of Medicines</h1>
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <a class="btn btn-primary btn-lg" asp-action="Create" asp-controller="Products">
+            <i class="bi bi-plus-lg"></i> New Product
+        </a>
+        <span class="text-muted">Total: @Model.Count product(s)</span>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered align-middle shadow-lg">
+            <thead style="background-color: #3B82F6; color: white;">
+
+                <tr>
+                    <th>ID</th>
+                    <th>Barcode</th>
+                    <th>Medicine Name</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Dosage Form</th>
+                    <th>Prescription?</th>
+                    <th>Image</th>
+                    <th>Description</th>
+                    <th>Created At</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model)
+                {
+                    <tr>
+                        <td>@product.Id</td>
+                        <td>@product.Barcode</td>
+                        <td class="fw-semibold">@product.Medicine_name</td>
+                        <td>@product.Price.ToString("F2")</td>
+                        <td>@product.Category</td>
+                        <td>@product.DosageForm</td>
+                        <td>
+                            @if (product.Prescription)
+                            {
+                                <span class="badge bg-success">Yes</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">No</span>
+                            }
+                        </td>
+                        <td>
+                            <img src="@Url.Content("~/products/" + product.ImgFileName)" class="img-thumbnail" width="70" />
+                        </td>
+                        <td>@product.Description</td>
+                        <td>@product.CreatedAt.ToShortDateString()</td>
+                        <td>
+                            <div class="btn-group">
+                                <a class="btn btn-sm btn-outline-primary" asp-controller="Products" asp-action="Edit" asp-route-id="@product.Id">
+                                    <i class="bi bi-pencil-square"></i> Edit
+                                </a>
+                                <a class="btn btn-sm btn-outline-danger" asp-controller="Products" asp-action="Delete" asp-route-id="@product.Id"
+                                   onclick="return confirm('Are you sure you want to DELETE this medicine?')">
+                                    <i class="bi bi-trash"></i> Delete
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+</div>

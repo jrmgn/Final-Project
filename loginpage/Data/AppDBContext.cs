@@ -13,5 +13,7 @@ namespace loginpage.Data
         protected AppDBContext()
         {
         }
+
+        public DbSet<Product> Products { get; set; }
     }
 }

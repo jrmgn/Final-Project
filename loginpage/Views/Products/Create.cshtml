@@ -1,0 +1,70 @@
+﻿@model loginpage.Models.ProductAdd
+
+
+@* create crud page *@
+@{
+    ViewData["Title"] = "Add Product"; 
+}
+
+<div class="col-md-8 mx-auto rounded border p-3">
+
+<h1 class="mb-5">Add Product</h1>
+    <form asp-action="Create" asp-controller="Products" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label class="form-label">Medicine Name</label>
+            <input asp-for="Medicine_name" class="form-control" />
+            <span asp-validation-for="Medicine_name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Barcode</label>
+            <input asp-for="Barcode" class="form-control" />
+            <span asp-validation-for="Barcode" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div class="form-check mb-3">
+            <input asp-for="Prescription" class="form-check-input" />
+            <label asp-for="Prescription" class="form-check-label"></label>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Category</label>
+            <select asp-for="Category" asp-items="Html.GetEnumSelectList<Category>()" class="form-select">
+                <option value="">-- Select Category --</option>
+            </select>
+            <span asp-validation-for="Category" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Dosage Form</label>
+            <select asp-for="DosageForm" asp-items="Html.GetEnumSelectList<DosageForm>()" class="form-select">
+                <option value="">-- Select Dosage Form --</option>
+            </select>
+            <span asp-validation-for="DosageForm" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Product Image</label>
+            <input asp-for="ImgFile" class="form-control" />
+            <span asp-validation-for="ImgFile" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label"></label>
+            <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Add Product</button>
+        <a class="btn btn-danger" asp-controller="Products" asp-action="ProductsList">Cancel</a>
+    </form>
+</div>
+
+

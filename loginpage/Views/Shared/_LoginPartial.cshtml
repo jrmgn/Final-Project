@@ -1,20 +1,34 @@
 ﻿@using Microsoft.AspNetCore.Identity;
 @inject SignInManager<Users> signInManager;
 
-<ul class="navbar-nav ms-auto">
+@* navbar content and conditions *@
+
+<ul class="navbar-nav">
     @if (signInManager.IsSignedIn(User))
     {
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-controller="Account" asp-action="Logout">Logout</a>
+            <a class="nav-link ms-3" asp-area="" asp-controller="Home" asp-action="Index"><b>HOME</b></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-area="" asp-controller="Products" asp-action="ProductsList"><b>PRODUCTS</b></a>
+        </li>
+
+    }
+</ul>
+<ul class="navbar-nav ms-auto">
+    @if (signInManager.IsSignedIn(User)){
+
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Account" asp-action="Logout"><b>LOGOUT</b></a>
         </li>
     }
     else
     {
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Login</a>
+            <a class="nav-link" asp-controller="Account" asp-action="Login"><b>LOGIN</b></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-controller="Account" asp-action="Register">Register</a>
+            <a class="nav-link" asp-controller="Account" asp-action="Register"><b>REGISTER</b></a>
         </li>
     }
 

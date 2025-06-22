@@ -2,6 +2,8 @@
 
 namespace loginpage.ViewModels
 {
+    //attribute declaration for login feature (acts as viewmodel)
+    //conditions included for error handling
     public class LoginViewModel
     {
             [Required(ErrorMessage = "Email is required.")]

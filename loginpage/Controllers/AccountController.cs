@@ -1,12 +1,15 @@
-﻿using loginpage.Models;
+﻿using System.Collections.Generic;
+using loginpage.Models;
 using loginpage.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace loginpage.Controllers
-{
+{ 
     public class AccountController : Controller
     {
+
+        //for user login and registration
         private readonly SignInManager<Users> _signInManager;
         private readonly UserManager<Users> _userManager;
         private object signInManager;
@@ -28,6 +31,7 @@ namespace loginpage.Controllers
         {
             if (ModelState.IsValid)
             {
+                //retrieves email and password when user login
                 var result = await _signInManager.PasswordSignInAsync(
                     model.Email,
                     model.Password,
@@ -35,11 +39,13 @@ namespace loginpage.Controllers
                     lockoutOnFailure: false     
                 );
 
+                //redirect to index view (homepage with list of medicines)
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Inventory", "Home");
+                    return RedirectToAction("Index", "Home");
                 }
 
+                //error prompt when wrong input for email/password
                 ModelState.AddModelError("", "Email or password is incorrect.");
             }
             return View(model);
@@ -54,6 +60,7 @@ namespace loginpage.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Creates a new Users object from the registration model
                 Users users = new Users
                 {
                     FirstName = model.Name,
@@ -64,10 +71,13 @@ namespace loginpage.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    //redirect to index view(homepage with list of medicines)
+                    return RedirectToAction("Hero", "Home");
                 }
                 foreach (var error in result.Errors)
+
                 {
+                    //error prompt for registration
                     ModelState.AddModelError("", error.Description);
                 }
                 return View(model);
@@ -76,8 +86,9 @@ namespace loginpage.Controllers
         }
             public async Task<IActionResult> Logout()
         {
+            //signs out user
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Hero", "Home");
         }
     }
  }
