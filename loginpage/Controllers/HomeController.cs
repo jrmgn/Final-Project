@@ -18,6 +18,11 @@ namespace loginpage.Controllers
             this.environment = environment;
         }
 
+        public IActionResult Hero()
+        {
+            return View();
+        }
+
         // retrieves products from the database then display on Index view (homepage)
         //crud view
         public IActionResult Index()

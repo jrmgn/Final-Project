@@ -72,7 +72,7 @@ namespace loginpage.Controllers
                 if (result.Succeeded)
                 {
                     //redirect to index view(homepage with list of medicines)
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Hero", "Home");
                 }
                 foreach (var error in result.Errors)
 
@@ -88,7 +88,7 @@ namespace loginpage.Controllers
         {
             //signs out user
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Hero", "Home");
         }
     }
  }
